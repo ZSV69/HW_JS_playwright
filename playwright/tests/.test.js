@@ -8,10 +8,10 @@ test("test success auth", async ({ page }) => {
     await page.locator('[placeholder="Пароль"]').click();
     await page.locator('[placeholder="Пароль"]').fill(userPassword);
     await page.locator('[data-testid="login-submit-btn"]').click();
-    await page.waitForURL("https://netology.ru/profile", { timeout: 5000 });
+    await page.waitForURL("https://netology.ru/profile/8680215", { timeout: 100000 });
     const header = await page.locator("h2").first();
     await expect(header).toHaveText("Моё обучение");
-    await browser.close();
+    await page.close();
 });
 
 test("test not success auth", async ({ page }) => {
